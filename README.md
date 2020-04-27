@@ -7,11 +7,15 @@ Open-Source-Based-Advanced-Design Project
 서동현   
 전현구   
 
-## Platform
-Tensorflow 2.0   
-Keras 2.3.1   
+## Library
+BeautifulSoup
+requests
+datetime
 python 3.6.8   
 numpy 1.18.1   
 
 ## LICENSE
 Apache License 2.0   
+
+
+## 
