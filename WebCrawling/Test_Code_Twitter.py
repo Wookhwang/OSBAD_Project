@@ -39,6 +39,7 @@ tweet = got.manager.TweetManager.getTweets(tweetCriteria)
 print("Collecting data end.. {0:0.2f} Minutes".format((time.time() - start_time)/60))
 print("=== Total num of tweets is {} ===".format(len(tweet)))
 
+
 # initialize
 tweet_list = []
 
@@ -61,15 +62,15 @@ for index in tqdm(tweet):
 
 twitter_df = pd.DataFrame(tweet_list,
                           columns = ["date", "time", "user_name", "text", "link", "retweet_counts", "favorite_counts"])
-
 # csv 파일 만들기
-twitter_df.to_csv("sample_twitter_data_{}_to_{}.csv".format(days_range[0], days_range[-1]), index=False)
+twitter_df.to_csv("sample_twitter_data_{}_to_{}.csv".format(days_range[0], days_range[-1]), index=False, encoding='utf-8')
 print("=== {} tweets are successfully saved ===".format(len(tweet_list)))
 
 # 파일 확인하기
 df_tweet = pd.read_csv('sample_twitter_data_{}_to_{}.csv'.format(days_range[0], days_range[-1]))
 print(df_tweet['text'].head(20))
 
+'''
 # 키워드 빈도 분석하기
 def get_keywords(dataframe):
     keywords = []
@@ -89,5 +90,5 @@ plt.title("Tweets mentioning keywords")
 plt.ylabel("# of tweets")
 plt.show()
 print(counts)
-
+'''
 

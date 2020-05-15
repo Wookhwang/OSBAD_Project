@@ -21,7 +21,7 @@ contents_text = []
 result = {}
 
 # 엑셀로 저장하기 위한 변수
-RESULT_PATH = 'C:/Users/khw08/Desktop/'
+RESULT_PATH = 'C:\project'
 now = datetime.now()  # 파일이름 현 시간으로 저장하기
 
 
@@ -45,7 +45,6 @@ def date_cleansing(test):
         match = r.search(test).group(1)
         # print(match)
         date_text.append(match)
-
 
 # 내용 정제화 함수
 def contents_cleansing(contents):
