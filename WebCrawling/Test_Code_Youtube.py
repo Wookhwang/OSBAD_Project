@@ -10,7 +10,7 @@ path = 'C:\\Users\\hyeon\\chromedriver'
 # driver란 변수에 객체를 만들어 준다.
 driver = webdriver.Chrome(path)
 # 원하는 사이트의 url을 입력하여 사이트를 연다.
-driver.get('https://www.youtube.com/results?search_query=%EB%AF%B8%EB%9E%98%ED%86%B5%ED%95%A9%EB%8B%B9&sp=CAM%253D')
+driver.get('https://www.youtube.com/results?search_query=%EB%AF%B8%EB%9E%98%ED%86%B5%ED%95%A9%EB%8B%B9+%EB%A7%89%EB%A7%90&sp=CAM%253D')
 # 한번 스크롤 하고 멈출 시간 설정
 SCROLL_PAUSE_TIME = 0.5
 # body태그를 선택하여 body에 넣음
@@ -24,7 +24,7 @@ while True:
         # body 본문에 END키를 입력(스크롤내림)
         time.sleep(SCROLL_PAUSE_TIME)
     new_height = driver.execute_script('return document.documentElement.scrollHeight')
-    if (new_height < (last_height*10)):
+    if (new_height == last_height):
         break
 
 page = driver.page_source
@@ -40,9 +40,10 @@ for video in all_videos:
     # 공백을 제거하고 글자수가 0보다 크면 append    
 
 
-
+# 조회수
+'''
 view_num_list = []
-view_num_regexp = re.compile(r'조회수')
+view_num_regexp = re.compile('조회수')
 for video in all_videos:
     view_num = video.find('span',{'class':'style-scope ytd-video-meta-block'})
     if view_num_regexp.search(view_num.text):
@@ -64,14 +65,20 @@ view_number_type_list = []
 for view in view_num_list:
     view_number_type_list.append(nview(view))
 
-print(title_list)
-print(view_num_list)
-print(view_number_type_list)
+'''
+
+
+for i in range(len(title_list)):
+    print(title_list[i])
+
 print(len(title_list))
 
 
-data = pd.DataFrame(view_number_type_list) 
-data.to_csv('유튜브크롤링결과조회수_cp949.csv', encoding='cp949') 
+data = pd.DataFrame(title_list) 
+  
+data.to_excel('.\\crawling_result\\미래통합당_막말.xlsx')
+
+
 
 # webdriver를 종료한다.
 driver.close()
