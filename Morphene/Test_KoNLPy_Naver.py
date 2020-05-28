@@ -4,20 +4,7 @@ from konlpy.tag import Okt
 from sklearn.feature_extraction.text import CountVectorizer
 from tqdm import tqdm
 
-'''
-if __name__ == '__main__':
-    # 각 형태소별로 분류(Tagging)해주는 Okt 객체를 불러온다.
-    tagger = Okt()
-
-    # nouns 함수를 통해 명사에 해당하는 부분만 리스트 형태로 반환한다.
-    noun_list = tagger.nouns('KoNLPy에 오신 것을 환영합니다.')
-
-    print(noun_list)
-
-'''
-# DTM을 편리하게 만들어주기 위해 Scikit-Learn에서 제공하는 CountVectorizer를 import 한다.
-
-
+# DTM을 편리하게 만들어주기 위해 Scikit-Learn에서 제공하는 Count Vectorizer를 import 한다.
 if __name__ == '__main__':
     # 타이틀 리스트를 불러와서 title_list 변수에 저장한다.
     t_file_name = open('Title_List.txt', 'r', encoding='utf-8')
@@ -41,7 +28,6 @@ if __name__ == '__main__':
 
     # pandas의 read_csv 함수를 이용하여 csv 파일을 불러온다.
     dataset = pd.read_csv('Naver_0408_0414_DM_UTF8_2.csv', encoding='utf-8')
-
 
     # 각 형태소별로 분류(Tagging)해주는 Okt 객체를 불러온다.
     tagger = Okt()
