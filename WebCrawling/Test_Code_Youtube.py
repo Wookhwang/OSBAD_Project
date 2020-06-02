@@ -10,7 +10,7 @@ path = 'C:\\Users\\hyeon\\chromedriver'
 # driver란 변수에 객체를 만들어 준다.
 driver = webdriver.Chrome(path)
 # 원하는 사이트의 url을 입력하여 사이트를 연다.
-driver.get('https://www.youtube.com/results?search_query=%EB%AF%B8%EB%9E%98%ED%86%B5%ED%95%A9%EB%8B%B9+%EB%A7%89%EB%A7%90&sp=CAM%253D')
+driver.get('https://www.youtube.com/results?search_query=20%EB%8C%80+%EC%B4%9D%EC%84%A0+%EC%83%88%EB%88%84%EB%A6%AC%EB%8B%B9+%ED%8C%A8')
 # 한번 스크롤 하고 멈출 시간 설정
 SCROLL_PAUSE_TIME = 0.5
 # body태그를 선택하여 body에 넣음
@@ -76,7 +76,7 @@ print(len(title_list))
 
 data = pd.DataFrame(title_list) 
   
-data.to_excel('.\\crawling_result\\미래통합당_막말.xlsx')
+data.to_excel('C:\\Users\\hyeon\\study\\오픈소스\\crawling_result\\train\\미래통합당\\20대 총선 새누리당 패.xlsx')
 
 
 
