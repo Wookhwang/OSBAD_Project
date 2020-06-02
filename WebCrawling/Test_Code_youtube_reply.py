@@ -1,4 +1,3 @@
-
 from selenium import webdriver as wd
 from bs4 import BeautifulSoup
 import time
@@ -54,7 +53,7 @@ def get_urls_from_youtube_with_keyword(keyword):
 def crawl_youtube_page_html_sources(urls):
     html_sources = []
 
-    for i in range(0, 5):
+    for i in range(0,100):
         driver = wd.Chrome(executable_path="C:\\Users\\hyeon\\chromedriver.exe")
         driver.get(urls[i])
 
@@ -117,16 +116,13 @@ def get_user_IDs_and_comments(html_sources):
 def convert_csv_from_dataframe(titles, my_dataframes):
     for i in range(len(my_dataframes)):
         title = re.sub('[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…《\》]', '', titles[i])
-        my_dataframes[i].to_csv("C:\\Users\\hyeon\\study\\오픈소스\\reply_crawling_result\\train\\미래통합당\\{}.csv".format("미래통합당 막말_"+title))
+        my_dataframes[i].to_csv("C:\\Users\\hyeon\\study\\오픈소스\\reply_crawling_result\\train\\더불어민주당\\{}.csv".format("더불어민주당_"+title))
 
 
-titles, url = get_urls_from_youtube_with_keyword("미래통합당 막말")
+titles, url = get_urls_from_youtube_with_keyword("더불어민주당")
 
 html_sorces = crawl_youtube_page_html_sources(url)
 
 my_dataframes = get_user_IDs_and_comments(html_sorces)
 
 convert_csv_from_dataframe(titles, my_dataframes)
-
-
-
