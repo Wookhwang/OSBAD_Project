@@ -6,7 +6,7 @@ import csv
 #df_tweet = pd.read_csv('sample_twitter_data_{}_to_{}.csv'.format(my_crawler.days_range[0], my_crawler.days_range[-1]))
 #df_tweet = pd.read_csv('sample_twitter_data_2019-04-20_to_2019-04-20.csv')
 
-f = open('sample_twitter_data_2019-04-21_to_2019-04-21.csv','r',encoding='UTF8')
+f = open('sample_twitter_data_2019-04-21_to_2019-04-21.csv', 'r', encoding='UTF8')
 rdr = csv.reader(f)
 
 x_data = [[0]*60 ]*60
