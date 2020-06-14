@@ -3,6 +3,7 @@ import json
 import nltk
 import numpy as np
 import tensorflow as tf
+from time import sleep
 
 class Analyzer:
     def __init__(self, file_name, model_name):
@@ -15,6 +16,7 @@ class Analyzer:
 
     def tokenize(self, doc):
         okt = Okt()
+        sleep(0.3)
         return ['/'.join(t) for t in okt.pos(doc, norm=True, stem=True)]
 
     def term_frequency(self, doc):

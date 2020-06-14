@@ -16,7 +16,7 @@ class Morpheme:
 
     def write_data(self, filename, train_data):
         train_docs = [(self.tokenize(row[1]), row[2]) for row in train_data]
-        pprint(train_docs[0])
+        #pprint(train_docs[0])
 
         with open(filename, 'w', encoding="utf-8") as make_file:
             json.dump(train_docs, make_file, ensure_ascii=False, indent="\t")
@@ -26,7 +26,7 @@ class Morpheme:
         print(doc)
         print(okt.pos(doc))
         print()
-        #sleep(0.5)
+        sleep(0.3)
 
         return ['/'.join(t) for t in okt.pos(doc, norm=True, stem=True)]
 
